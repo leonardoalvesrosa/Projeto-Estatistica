@@ -1,0 +1,54 @@
+@font-face {
+    font-family: "Gameplay";
+    src: url("../fontes/Gameplay.woff");
+}
+
+#bloco1{
+    opacity: 1;
+}
+
+#logo{
+    width: 200px;
+    position: relative;
+    left: 80px;
+    top:170px;
+
+}
+
+span{
+    font-family: "Gameplay";
+    display: block;
+    font-size: 45px;
+    position: relative;
+    left: 150px;
+    top:-80px;
+}
+
+span#tm{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    top:-100px;
+    left: 285px;
+}
+
+
+span#slogan{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    top:-100px;
+    left: 150px;
+}
+
+
+img#cubo{
+    width: 120px;
+    position: relative;
+    left: 10px;
+    top:30px;
+}
+
+
