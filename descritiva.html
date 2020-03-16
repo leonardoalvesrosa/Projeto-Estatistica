@@ -4,46 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabela Descritiva</title>
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-cyan.min.css" />
-    <link rel="stylesheet" href="css/estilo-descritiva.css.css">
+   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-cyan.min.css" />
+    <link rel="stylesheet" href="css/estilo-descritiva.css">
 
-
+    <style>
+        table td{border: 1px solid black}
+    </style>
 
 </head>
 <body>
-    <h2>TABELA DESCRITIVA</h1>
-        <div id="formulario">
-            <form action="">
-                <label>Nome da Variável:</label>
-                <input type="text" id="nomevar">
-        
-                <br><br>
-        
-                <label>Dados:</label>
-                <input type="text" id="dados">
-                
-                <br><br>
-
-                <input type="button" id="calc" value="Salvar">
-        
-                <input type="button" id="visu"  value="Visualizar" onclick="visuTabela(nomevar.value,dados.value)">
-            </form>        
-        </div>
-        <br><br><br>
-        <div id="descritiva">
-            <table id="tabela">
-                <thead>
-                    <tr>
-                        <td id="nomecol"></td>
-                        <td>Frequência</td>
-                        <td>Frequência (%)</td>
-                        <td>Frequência Acumulada</td>
-                        <td>FAC (%)</td>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-
+    <div id="corpo">
+        <h2>TABELA DESCRITIVA</h1>
+            <div id="formulario">
+                <form action="">
+                    <label>Nome da Variável:</label>
+                    <input type="text" id="nomevar">
+            
+                    <br><br>
+            
+                    <label>Dados:</label>
+                    <input type="text" id="dados">
+                    
+                    <br><br>
+    
+                    <input type="button" id="calc" value="Salvar">
+            
+                    <input type="button" id="visu"  value="Visualizar" onclick="visuTabela(nomevar.value,dados.value)">
+                </form>        
+            </div>
+            <br><br><br>
+            <div id="descritiva">
+                <table id="tabela">
+                    <thead>
+                        <tr>
+                            <td id="nomecol"></td>
+                            <td>Frequência</td>
+                            <td>Frequência (%)</td>
+                            <td>Frequência Acumulada</td>
+                            <td>FAC (%)</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+    
+    </div>
+    
     
     <script src="javascript/descritiva.js"></script>
 
