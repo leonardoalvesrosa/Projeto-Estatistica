@@ -38,12 +38,12 @@ function visuTabela(nome, dados){
     var celldados = linha.insertCell(0)
  
     nometitulo.innerHTML = nome
-    
+  
 
     dadosSep = dados.toString().split(';')
     console.log(dadosSep)
     for(let item in dadosSep){
-        celldados.innerHTML += dadosSep[item] + '<br>'
+       celldados.innerHTML += dadosSep[item] + '<br>'
     }
     
     
