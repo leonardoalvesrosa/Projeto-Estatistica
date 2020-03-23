@@ -14,25 +14,43 @@
 </head>
 <body>
     <div id="corpo">
-        <h2>TABELA DESCRITIVA</h1>
+        <h2>TABELA DESCRITIVA</h1><br>
             <div id="formulario">
                 <form action="">
-                    <label>Nome da Variável:</label>
-                    <input type="text" id="nomevar">
+
+                    <label for="nomevar">Nome da Variável:</label>
+                    <input type="text" id="nomevar" placeholder="Digite o nome da variável...">
             
-                    <br><br>
+                    <br><br><br>
             
-                    <label>Dados:</label>
-                    <input type="text" id="dados">
+                    <label for="dados">Dados:</label>
+                    <input type="text" id="dados" style="width: 268px;" placeholder="Digite os valores entre (;)">
                     
-                    <br><br>
+                    <br><br><br>
+
+                    <input type="radio" name="opcao" id="populacao" checked>
+                    <label for="populacao">População</label>
+                    <input type="radio" name="opcao" id="amostra">
+                    <label for="amostra">Amostra</label>
+
+                    <br><br><br>
+
+                    <select name="" id="variavel">
+                        <option value="">Selecione...</option>
+                        <option value="">Qualitativa Nominal</option>
+                        <option value="">Qualitativa Ordinal</option>
+                        <option value="">Quantitativa Discreta</option>
+                        <option value="">Quantitativa Contínua</option>
+                    </select>
+
+                    <br><br><br>    
     
-                    <input type="button" id="calc" value="Salvar">
+                    <input type="button" id="calc" value="Salvar" >
             
-                    <input type="button" id="visu"  value="Visualizar" onclick="visuTabela(nomevar.value,dados.value)">
+                    <input type="button" id="visu"  value="Visualizar"  onclick="visuTabela(nomevar.value,dados.value)">
                 </form>        
             </div>
-            <br><br><br>
+            <br><br>
             <div id="descritiva">
                 <table id="tabela">
                     <thead>
@@ -48,6 +66,8 @@
             </div>
     
     </div>
+
+    <footer></footer>
     
     
     <script src="javascript/descritiva.js"></script>
