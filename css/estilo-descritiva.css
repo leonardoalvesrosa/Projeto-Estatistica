@@ -14,7 +14,7 @@ input[type='text']{
     padding: 5px;
     border: none;
     background-color: rgb(255, 255, 255);
-    border: 1px solid #31a54b;
+    border: 1px solid gray;
     border-radius: 5px;
     font-size: 15px;
 }
@@ -61,7 +61,7 @@ select{
     padding: 3px;
     border-radius: 5px;
     font-size: 15px;
-    border: 1px solid #31a54b;
+    border: 1px solid gray;
 }
 
 table{
@@ -73,7 +73,7 @@ table{
 table td{
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #27813a;
+    border: 1px solid gray;
     text-align: center;
 
 }
@@ -82,7 +82,7 @@ table td{
 table th{
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #27813a;
+    border: 1px solid gray;
 
 }
 
