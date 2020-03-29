@@ -7,9 +7,12 @@ const salve = document.getElementById('calc')
 
 
 
-
-
-
+    /*
+const array = [1, 5, 3, 3, 1, 6, 7, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4];
+const novoArray = [ ...new Set( array ) ];
+console.log(novoArray);
+// Esperado: [1, 5, 3, 6, 7, 2, 4]
+*/
 
 
 function criaTag(elemento){
@@ -32,7 +35,7 @@ function visuTabela(){
 
     dados.push(conteudo)
     dadosSep = dados.toString().split(';')
-    console.log(dadosSep)
+
    
     let tabela = document.getElementById('tabela')
     //let nometitulo = document.getElementById('nomecol')
@@ -64,41 +67,79 @@ function visuTabela(){
     }
     
     thead.appendChild(linhaHead)
+    
+    
 
-    //dadosSep = dados.toString().split(';')
+     dadosSep.sort()
+
+    console.log(dadosSep)
+    
+
+    let x, fac = 0
+    let freqArray = []
+    let facArray = []
+    let perArray = []
+    let perFac = []
+    for (let i = 0; i < dadosSep.length; i = x) {  
+        let freqCont = 1
+        let freqPer = 0
+        for (x = i + 1; x < dadosSep.length; x++) {
+            if (dadosSep[i] == dadosSep[x]) {
+                freqCont++;
+                //freqPer = (freqCont / (dadosSep.length)) * 100
+            } else {
+            break;
+            }
+        }
+        fac += freqCont
+        facArray.push(fac)
+        freqArray.push(freqCont)
+        //perArray.push(freqPer)
+    }
+
+    for(let i = 0; i < freqArray.length; i++){
+        per = Math.round((freqArray[i] / dadosSep.length) * 100)
+        perArray.push(per)
+    }
+
+    
+    for(let i = 0; i < facArray.length; i++){
+        per = Math.round((facArray[i] / dadosSep.length) * 100)
+        perFac.push(per)
+    }
 
 
-    for(let j = 0; j < dadosSep.length; j++){
+    console.log(freqArray)
+    console.log(perArray)
+    console.log(facArray)
+    console.log(perFac)
         
+
+
+
+
+    const novoDados = [ ...new Set( dadosSep ) ];
+    console.log(novoDados);
+
+
+    for(let j = 0; j < novoDados.length; j++){
         let linhaBody = criaTag("tr")
         //linhaBody.appendChild(criaCelula("td" ))
-        let cell = criaCelula("td", dadosSep[j])
+        let cell = criaCelula("td", novoDados[j])
+        let cell2 = criaCelula("td", freqArray[j])
+        let cell3 = criaCelula("td", perArray[j])
+        let cell4 = criaCelula("td", facArray[j])
+        let cell5 = criaCelula("td", perFac[j])
         linhaBody.appendChild(cell)
-        
+        linhaBody.appendChild(cell2)
+        linhaBody.appendChild(cell3)
+        linhaBody.appendChild(cell4)
+        linhaBody.appendChild(cell5)
         tbody.appendChild(linhaBody)
+
     }
 
     
-
-
-
-
-
-    /*
-    for(let j = 0; j < dadosSep.length; j++){
-        //console.log(dadosSep[j])
-        
-        let linhaBody = criaTag("tr")
-        linhaBody.appendChild(criaCelula("td", (j+1)))
-        for(let i = 0; i < dadosSep[j].length; i++){
-            //console.log(dadosSep[j][i])
-            let cell = criaCelula("td", dadosSep[j][i])
-            linhaBody.appendChild(cell)
-        }
-        tbody.appendChild(linhaBody)
-    }
-    
-*/
 
 
     let linhaFoot = criaTag("tr")
@@ -108,8 +149,8 @@ function visuTabela(){
     linhaFoot.appendChild(celulaFoot)
     tbody.tfoot.appendChild(linhaFoot)
     
-    
-    
+
+
 }
 
 
