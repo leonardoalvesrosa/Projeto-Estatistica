@@ -122,6 +122,55 @@ function visuTabela(){
     console.log(novoDados);
 
 
+
+        
+    console.log(novoDados)
+    console.log(freqArray)
+
+    let chart = new Chart(document.getElementById("myChart"), {
+        type: 'pie',
+        data:{
+            labels: novoDados,
+            datasets: [
+            {
+                label: "Porcentagem",
+                data: freqArray,
+            
+                backgroundColor:[
+                    
+                ],
+                
+
+                borderWidth: 2
+                
+            
+                }
+            ]
+            
+        },
+
+        options:{  
+
+            title:{
+                display: true,
+                fontSize: 20,
+                text: "GRÁFICO DESCRITIVO"
+            },
+
+            scales:{
+                yAxes: [
+                    {
+                        ticks:{
+                            beginAtZero: true
+                        }
+                    }
+                ]
+            }
+        }
+    })
+
+
+
     for(let j = 0; j < novoDados.length; j++){
         let linhaBody = criaTag("tr")
         //linhaBody.appendChild(criaCelula("td" ))
@@ -154,10 +203,7 @@ function visuTabela(){
 }
 
 
-
-
-
-
+//-----------------------------------------------------------------------------------------------------------------------------------------
 
 
 
