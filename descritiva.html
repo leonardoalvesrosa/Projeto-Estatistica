@@ -4,66 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabela Descritiva</title>
-   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-cyan.min.css" />
-    <link rel="stylesheet" href="css/estilo-descritiva.css">
+   <!--<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-cyan.min.css" />-->
+   <link rel="stylesheet" href="css/estilo-descritiva.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Chart.js  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+
 
 </head>
-<body>
-    <div id="corpo">
-        <h2>TABELA DESCRITIVA</h2><br>
-            <div id="formulario">
-                <form action="">
+<body id="conteudo">
+    <header></header>
 
-                    <label for="nomevar">Nome da Variável  </label>
-                    <input type="text" id="nomevar" placeholder="Digite o nome da variável..." style="width: 310px;">
+    <div  class="d-flex">
+        <div class="container align-self-center">
             
-                    <br><br><br>
-            
-                    <label for="dados">Dados  </label>
-                    <input type="text" id="dados" style="width: 386px;" placeholder="Digite os valores entre (;)">
-                    
-                    <br><br><br>
+            <div id="coluna" class="row">
+                <div id="corpo" class="col-md-10 ">
 
-                    <input type="radio" name="opcao" id="populacao" checked>
-                    <label for="populacao">População</label>
-                    <input type="radio" name="opcao" id="amostra">
-                    <label for="amostra">Amostra</label>
-
-                    <br><br><br>
-
-                    <select name="" id="variavel">
-                        <option value="">Selecione...</option>
-                        <option value="">Qualitativa Nominal</option>
-                        <option value="">Qualitativa Ordinal</option>
-                        <option value="">Quantitativa Discreta</option>
-                        <option value="">Quantitativa Contínua</option>
-                    </select>
-
-                    <br><br><br>    
-    
-            
-                    <input type="button" id="calc"  value="CALCULAR"  onclick="visuTabela()">
-                </form>        
-            </div>
-            <br><br>
-            <div id="descritiva">
-                <table id="tabela">
-                    <!--
-                    <thead>
-                        <tr>
-                            <td id="nomecol"></td>
-                            <td>Frequência</td>
-                            <td>Frequência (%)</td>
-                            <td>Frequência Acumulada</td>
-                            <td>FAC (%)</td>
+                    <h2 class="display-4 text-center">TABELA DESCRITIVA</h2><br>
+                    <div id="formulario">
+                        <form action="">
+        
+                            <div class="form-group">
+                                <label for="nomevar">Nome da Variável  </label>
+                                <input class="form-control" type="text" id="nomevar" placeholder="Digite o nome da variável...">
+                            </div>
                             
-                        </tr>
-                    </thead>
-                    -->
-                </table>
-            </div>
-    
+        
+                            
+                            <div class="form-group">
+                                <label for="dados">Dados  </label>
+                                <input class="form-control" type="text" id="dados" placeholder="Digite os valores entre (;)">
+                            </div>
+                            
+                            
+        
+        
+                            <div class="form-group">
+                                <input type="radio" name="opcao" id="populacao" checked>
+                                <label for="populacao">População</label>
+                                <input type="radio" name="opcao" id="amostra">
+                                <label for="amostra">Amostra</label>
+                            </div>
+                            
+        
+        
+                            <div class="form-group">
+                                <select class="form-control" name="" id="variavel">
+                                    <option value="">Selecione...</option>
+                                    <option value="">Qualitativa Nominal</option>
+                                    <option value="">Qualitativa Ordinal</option>
+                                    <option value="">Quantitativa Discreta</option>
+                                    <option value="">Quantitativa Contínua</option>
+                                </select>
+                            </div>
+        
+            
+                    
+                            <input class= "btn  btn-block btn-dark" type="button" id="calc"  value="CALCULAR"  onclick="visuTabela()">
+        
+                        </form>        
+                    </div>
+
+                    <br><br>
+
+                    <div id="descritiva" class="d-flex">
+                            <div id="tabelacss" class="col-md-12">
+                                <table id="tabela" class="table">
+                                    <!--
+                                    <thead>
+                                        <tr>
+                                            <td id="nomecol"></td>
+                                            <td>Frequência</td>
+                                            <td>Frequência (%)</td>
+                                            <td>Frequência Acumulada</td>
+                                            <td>FAC (%)</td>
+                                            
+                                        </tr>
+                                    </thead>
+                                    -->
+                                </table>
+                            </div>
+                            
+                        
+                        
+                    </div>
+
+                    <div class="d-flex" id="grafico">
+                        <div class="col-md-12" >
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                   
+
+            
+                </div>
+
+
+             </div>
+        </div>
     </div>
+        
 
     <footer></footer>
     
