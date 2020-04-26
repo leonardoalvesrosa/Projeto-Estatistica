@@ -1,15 +1,96 @@
-#corpo{
-    margin: auto;
-    margin-top: 50px;
-    border:1px solid gray;
-    width: 600px;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px #888;
-    font-size: 15px;
+
+#conteudo{
+    height: 100%;
+    width: 100%;
+    background: rgb(228, 226, 226);
+    overflow-x: hidden;
 }
 
 
+#coluna #corpo{
+    margin: auto;
+    border:1px solid gray;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px #888;
+    background-color: white;
+}
+
+header{
+    margin-bottom: 30px;
+}
+
+.form-group input{
+    margin-bottom: 40px;
+}
+
+#calc{
+    margin-top: 40px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 18px;
+    
+}
+
+#corpo h2{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#tabelacss{
+    margin: auto;
+    text-align: center;
+    padding: 5px;
+}
+
+#populacao, #amostra{
+    margin-right: 10px;
+}
+
+.form-group label{
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    #tabelacss{
+        padding:0px;
+        font-size: 11px;
+    }
+
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+    
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+   
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+   
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+   
+}
+
+/*
 input[type='text']{
     padding: 5px;
     border: none;
@@ -34,7 +115,7 @@ input[type='button']{
     border: none;
     /*background-color: rgb(112, 108, 108);
     color: white;*/
-    color:#000;
+    /*color:#000;
     background: #62ff84;
     font-weight: bold;
     padding: 12px;
@@ -85,7 +166,9 @@ table th{
     border: 1px solid gray;
 
 }
-
+*/
 footer{
-    padding: 30px;
+    padding: 20px;
 }
+
+/*
