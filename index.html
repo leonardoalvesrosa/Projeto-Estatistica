@@ -9,38 +9,70 @@
     <link rel="stylesheet" href="css/estilo-index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa">
 
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
     <title>Login | Gama Tech</title>
+
+
 </head>
 <body>
 
     <!--1° PARTE-->
-    <div id="bloco1">
-        <div id="logo">
-            <img id="cubo" src="imagens/cubo.png" alt="">
-            <span>Gama</span>
-            <span>Tech</span>
-            <span id="tm">&trade;</span>
-            <span id="slogan">Informação|Tecnologia.</span>
+    <div id="bloco1" class="d-flex ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 d-none d-lg-block">
+                    <div id="logo">
+                        <img id="cubo" src="imagens/cubo.png" alt="">
+                        <span>Gama</span>
+                        <span>Tech</span>
+                        <span id="tm">&trade;</span>
+                        <span id="slogan">Informação|Tecnologia.</span>
+                    </div>
+                </div>
+               
+            </div>
+            
         </div>
+        
     </div>
 
 
     <!--2° PARTE-->
-    <div id="bloco2">
+    <div id="bloco2" class="d-flex">
         <div class='login'>
-            <img src='./imagens/user.png' class='usuario' width="100" height="100" alt="">
-            <h1>Login</h1>
-            <form>
-                <label for="user">Usuário</label>
-                <input type="text" name="user" id="user"placeholder="Insira seu nome de usuário">
-                <label for="pass">Senha</label>
-                <input class='senha' type="password" name="pass" id="pass" placeholder="Insira sua senha">
+            <div class="container align-self-center">
+                <div class="row">
+                    <div class="col-md-12">
 
-                <a id="botao" href="descritiva.html"> <span id="btn"> LOGIN</span></a>
-                
-                <a href="#">Esqueceu a sua senha?</a><br>
-                <a href="#">Ainda não possui uma conta?</a><br>
-            </form>
+                        <img src='./imagens/user.png' id="imgUser"class='usuario' width="110" height="110" alt="">
+                        <h1>Login</h1>
+                        <form>
+                            <label for="user">Usuário</label>
+                            <input type="text" name="user" id="user"placeholder="Insira seu nome de usuário">
+                            <label for="pass">Senha</label>
+                            <input class='senha' type="password" name="pass" id="pass" placeholder="Insira sua senha">
+            
+            
+            
+                            <a id="botao" href="descritiva.html"> <span id="btn"> LOGIN</span></a>
+             
+                            <div id="link">
+                                <a href="#">Esqueceu a sua senha?</a><br>
+                                <a href="#">Ainda não possui uma conta?</a><br>
+                            </div>
+                           
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
