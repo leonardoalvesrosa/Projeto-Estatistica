@@ -1,8 +1,4 @@
 
-
-
-
-
 * {
     margin: 0;
     padding: 0;
@@ -200,13 +196,15 @@ h1{
 
 }
 
-span{
+span#gama{
     font-family: "Gameplay";
     display: block;
     font-size: 45px;
     position: relative;
+    
     left: 150px;
     top:-80px;
+    
 }
 
 span#tm{
