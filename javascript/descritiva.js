@@ -28,9 +28,9 @@ function visuTabela(){
     let conteudo = dadosvar.value
 
     if (nome == "" || conteudo == ""){
-    alert('Digite dados válidos!')
-    nomevar.focus()
-    return
+        swal("Ops!", "Digite dados válidos!", "error");
+        nomevar.focus()
+        return
     }
 
     dados.push(conteudo)
