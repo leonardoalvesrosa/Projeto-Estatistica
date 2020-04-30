@@ -17,12 +17,19 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
+    <!-- Sweet Alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   
+
+    
 
     <title>Login | Gama Tech</title>
 
 
 </head>
 <body>
+
+     
 
     <!--1° PARTE-->
     <div id="bloco1" class="d-flex ">
@@ -31,10 +38,12 @@
                 <div class="col-md-12 d-none d-lg-block">
                     <div id="logo">
                         <img id="cubo" src="imagens/cubo.png" alt="">
-                        <span>Gama</span>
-                        <span>Tech</span>
-                        <span id="tm">&trade;</span>
-                        <span id="slogan">Informação|Tecnologia.</span>
+                            <span id="gama">Gama</span>
+                            <span id="gama">Tech</span>
+                            <span id="tm">&trade;</span>
+                            <span id="slogan">Informação|Tecnologia.</span>
+                        </div>
+                        
                     </div>
                 </div>
                
@@ -62,7 +71,44 @@
             
             
             
-                            <a id="botao" href="descritiva.html"> <span id="btn"> LOGIN</span></a>
+                            <a id="botao"  onclick="mensagem()"  > <span id="btn"> LOGIN</span></a>
+
+                            <script>
+
+
+                                function mensagem(){
+
+                                    var usuario = document.getElementById('user')
+
+                                    var password = document.getElementById('pass')
+
+                                    var botao = document.getElementById('botao')
+
+                                 
+
+                                    let user = usuario.value 
+                               
+                                    let pass = password.value
+                                  
+
+
+                                    if (user != '' && pass != ''){
+                                        swal("Bem vindo!", "Login concluído.", "success");
+
+                                        setTimeout(function(){
+                                            window.location.href = "descritiva.html"
+                                        },1500);
+                                        
+                                    } else {
+                                        swal("Ops!", "Login inválido", "error");
+                                        user = ''
+                                        user.focus()
+                                    }
+                                    
+                                }
+
+                               
+                            </script>
              
                             <div id="link">
                                 <a href="#">Esqueceu a sua senha?</a><br>
@@ -75,6 +121,10 @@
             </div>
         </div>
     </div>
+
+
+    
+    
     
     
 </body>
