@@ -2,7 +2,8 @@
 #conteudo{
     height: 100%;
     width: 100%;
-    background: rgb(228, 226, 226);
+    /*background: rgb(228, 226, 226);*/
+    background: linear-gradient(rgb(66, 66, 66),rgb(168, 168, 168),white);
     overflow-x: hidden;
 }
 
@@ -171,6 +172,5 @@ table th{
 footer{
     padding: 20px;
 }
-
 
 /*
