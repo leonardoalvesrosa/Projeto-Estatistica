@@ -545,13 +545,14 @@ function visuTabela(){
         })
     }
 
-    var z = []
-    for(let i = 0; i < p.length - 1; i++){
-        z.push(`${p[i]} |--- ${p[i+1]}`)
-    }
+    
         
     // GRAFICO
     if(variavel.value === 'continua'){
+        var z = []
+        for(let i = 0; i < p.length - 1; i++){
+            z.push(`${p[i]} |--- ${p[i+1]}`)
+        }
         let chart = new Chart(document.getElementById("myChart"), {
             type: 'bar',
             data:{
