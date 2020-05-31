@@ -4,6 +4,9 @@
     width: 100%;
     /*background: rgb(228, 226, 226);*/
     background: linear-gradient(rgb(66, 66, 66),rgb(168, 168, 168),white);
+    /* background-image: url(../imagens/gama3.jpg);
+    background-position: center;
+    background-size: cover; */
     overflow-x: hidden;
 }
 
@@ -54,10 +57,16 @@ header{
 }
 
 
+#medidas{
+    float: left;
+    margin-right: 30px;
+    
+}
 
 
-
-
+#label{
+    margin-top: 30px;
+}
 
 
 
