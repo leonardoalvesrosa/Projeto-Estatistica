@@ -247,8 +247,10 @@ function visuTabela(){
      
 
    //console.log(dadosSep)
-    
-   dadosSep.sort()
+    if(variavel.value === 'nominal'){
+        dadosSep.sort()
+    }
+   
 
     let x, fac = 0
     let freqArray = []
