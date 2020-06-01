@@ -89,6 +89,12 @@ function visuTabela(){
     }
 
 
+    if(variavel.value === ''){
+        swal("Ops!", "Selecione uma variável", "error");
+        variavel.focus()
+        return
+    }
+
     // if(variavel.value === 'nominal' && medidas.value !== 'Selecione'){
     //     swal("Ops!", "Medidas separatrizes operam somente em variáveis quantitativas!", "error");
     //     medidas.disabled
@@ -651,6 +657,14 @@ function visuTabela(){
         }
 
         if(moda === 'moda'){
+            var valor = modaArray.length
+            for(let i = 0; i < valor;i++){
+                if(modaArray[i] === 'Amodal'){
+                    modaArray.splice(0,valor)
+                }
+            }
+
+
             let posFim = (freqSort.length - 1)
             
             maior = freqSort[posFim]
@@ -666,7 +680,7 @@ function visuTabela(){
         meio = (freqTot / 2).toFixed(1)
 
         for(let i = 0; i < facArray.length; i++){
-            if(meio > facArray[i] && meio < facArray[i + 1]){
+            if(meio > facArray[i] && meio <= facArray[i + 1]){
                 mediana = novoDados[i + 1]
             }
         }
@@ -1019,16 +1033,18 @@ function visuTabela(){
                 
                     backgroundColor:[
 
-                        '#d8f3dc',
-                        '#b7e4c7',
-                        '#95d5b2',
-                        '#74c69d',
-                        '#52b788',
-                        '#40916c',
-                        '#2d6a4f',
-                        '#1b4332',
-                        '#3b6064',
-                        '#364958'
+                        '#1d3557',
+                        '#457b9d',
+                        '#f4a261',
+                        '#e9c46a',
+                        '#02c39a',
+                        '#c44536',
+                        '#011627',
+                        '#283618',
+                        '#540b0e',
+                        '#c9ada7',
+                        '#e36414',
+                        '#ce4257'
 
                         // '#00d2a6',
                         // '#00fb71',
@@ -1083,16 +1099,18 @@ function visuTabela(){
                     data: freqArray,
                 
                     backgroundColor:[
-                        '#d8f3dc',
-                        '#b7e4c7',
-                        '#95d5b2',
-                        '#74c69d',
-                        '#52b788',
-                        '#40916c',
-                        '#2d6a4f',
-                        '#1b4332',
-                        '#3b6064',
-                        '#364958'
+                        '#1d3557',
+                        '#457b9d',
+                        '#f4a261',
+                        '#e9c46a',
+                        '#02c39a',
+                        '#c44536',
+                        '#011627',
+                        '#283618',
+                        '#540b0e',
+                        '#c9ada7',
+                        '#e36414',
+                        '#ce4257'
 
 
                         // '#00d2a6',
@@ -1153,16 +1171,18 @@ function visuTabela(){
                     data: freq,
                 
                     backgroundColor:[
-                        '#d8f3dc',
-                        '#b7e4c7',
-                        '#95d5b2',
-                        '#74c69d',
-                        '#52b788',
-                        '#40916c',
-                        '#2d6a4f',
-                        '#1b4332',
-                        '#3b6064',
-                        '#364958'
+                        '#1d3557',
+                        '#457b9d',
+                        '#f4a261',
+                        '#e9c46a',
+                        '#02c39a',
+                        '#c44536',
+                        '#011627',
+                        '#283618',
+                        '#540b0e',
+                        '#c9ada7',
+                        '#e36414',
+                        '#ce4257'
                     ],
                     
                     borderWidth: 2
