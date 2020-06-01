@@ -236,7 +236,7 @@ function visuTabela(){
     thead.appendChild(linhaHead)
     thead2.appendChild(linhaHead2)
     thead3.appendChild(linhaHead3)
-    thead4.appendChild(linhaHead4)
+  
     
      
 
@@ -1235,6 +1235,7 @@ function visuTabela(){
         tbody3.appendChild(linhaBody3)
 
         if(variavel.value === 'discreta'){
+            thead4.appendChild(linhaHead4)
             let linhaBody4 = criaTag("tr")
             let cellDp = criaCelula("td", dp)
             let cellCv = criaCelula("td", cv)
@@ -1281,6 +1282,7 @@ function visuTabela(){
         linhaBody3.appendChild(cellMed)
         tbody3.appendChild(linhaBody3)
 
+        thead4.appendChild(linhaHead4)
         let linhaBody4 = criaTag("tr")
         let cellDp = criaCelula("td", dp)
         let cellCv = criaCelula("td", cv)
