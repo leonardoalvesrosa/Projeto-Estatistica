@@ -247,9 +247,9 @@ function visuTabela(){
      
 
    //console.log(dadosSep)
-    if(variavel.value === 'nominal'){
-        dadosSep.sort()
-    }
+    
+    dadosSep.sort()
+    
    
 
     let x, fac = 0
@@ -564,11 +564,61 @@ function visuTabela(){
         var modaArray = []
         let meio = 0
         var mediana = 0
+        var arrayModa = []
+
+
+        function troca(vet, i, j) {
+            let aux = vet[i]
+            vet[i] = vet[j]
+            vet[j] = aux
+         }
+         
+         function quickSort(vet, posIni = 0, posFim = vet.length - 1) {
+            
+            if(posFim > posIni) { 
+               const posPivot = posFim  
+               let posDiv = posIni - 1    
+               for(let i = posIni; i < posFim; i++) { 
+                  if(vet[i] < vet[posPivot]) {
+                     posDiv++
+                     troca(vet, i, posDiv)  
+                  }
+               }
+               posDiv++
+               troca(vet, posDiv, posPivot)
+               quickSort(vet, posIni, posDiv - 1)
+               quickSort(vet, posDiv + 1, posFim)
+            }
+         }
+
+
+
+
+
+        for(let i = 0; i < freqArray.length; i++){
+            arrayModa.push(freqArray[i])
+        }
+
+
+        quickSort(arrayModa)
+
+
        
         // MODA
         let posIni = freqArray[0]
 
         for(let i = 1; i < freqArray.length - 1; i++){
+
+
+            // var valor = modaArray.length
+            // for(let i = 0; i < valor;i++){
+            //     if(modaArray[i] === 'Amodal'){
+            //         modaArray.splice(0,valor)
+            //     }
+            // }
+
+
+
             if(posIni !== freqArray[i]){
                 moda = 'moda'
                 i = (freqArray.length - 1)
@@ -582,7 +632,9 @@ function visuTabela(){
         if(moda === 'moda'){
             let posFim = (freqArray.length - 1)
             
-            maior = freqArray[posFim]
+
+
+            maior = arrayModa[posFim]
             
             for(let i = 0; i < freqArray.length; i++){
                 if(freqArray[i] === maior){
@@ -755,6 +807,16 @@ function visuTabela(){
         let posIni = freq[0]
 
         for(let i = 1; i < freq.length - 1; i++){
+
+            var valor = modaArray.length
+            for(let i = 0; i < valor;i++){
+                if(modaArray[i] === 'Amodal'){
+                    modaArray.splice(0,valor)
+                }
+            }
+
+
+
             if(posIni !== freq[i]){
                 moda = 'moda'
                 i = (freq.length - 1)
@@ -1290,7 +1352,7 @@ function visuTabela(){
         }
 
         let linhaBody = criaTag("tr")
-        let cell = criaCelula("td", media)
+        let cell = criaCelula("td", m)
         let cell2 = criaCelula("td", modaArray)
         let cell3 = criaCelula("td", mediana)
         linhaBody.appendChild(cell)
