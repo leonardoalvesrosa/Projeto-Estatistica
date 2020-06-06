@@ -95,6 +95,8 @@ function visuTabela(){
         return
     }
 
+   
+
     // if(variavel.value === 'nominal' && medidas.value !== 'Selecione'){
     //     swal("Ops!", "Medidas separatrizes operam somente em variáveis quantitativas!", "error");
     //     medidas.disabled
@@ -115,6 +117,19 @@ function visuTabela(){
     dados.push(conteudo)
     dadosSep = dados.toString().split(';')
 
+
+    if((variavel.value === 'nominal' || variavel.value === 'ordinal')  && !isNaN(dadosSep[0])){
+        swal("Ops!", "Esta variável só aceita palavras", "error");
+        nomevar.focus()
+        return
+    }
+
+
+    if((variavel.value === 'discreta' || variavel.value === 'continua')  && isNaN(dadosSep[0])){
+        swal("Ops!", "Esta variável só aceita números", "error");
+        nomevar.focus()
+        return
+    }
 
 
     if(variavel.value === 'discreta' || variavel.value === 'continua'){
