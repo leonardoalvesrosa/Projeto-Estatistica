@@ -8,6 +8,7 @@
     background-position: center;
     background-size: cover; */
     overflow-x: hidden;
+    
 }
 
 
@@ -22,6 +23,16 @@
 header{
     margin-bottom: 30px;
 }
+
+
+
+#seta{
+    position: relative;
+    top: 85px;
+    left: 80%;
+}
+
+
 
 .form-group input{
     margin-bottom: 40px;
@@ -69,9 +80,6 @@ header{
 }
 
 
-
-
-
 /*Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
     #tabelacss{
@@ -83,17 +91,23 @@ header{
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
-    
+    #seta{
+        visibility: hidden;
+    }
 }
 
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) and (max-width: 991.98px) {
-   
+   #seta{
+       visibility: hidden;
+   }
 }
 
 /*Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
-   
+    #seta{
+        visibility: hidden;
+    }
 }
 
 /*Extra large devices (large desktops, 1200px and up)*/
