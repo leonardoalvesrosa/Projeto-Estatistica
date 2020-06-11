@@ -1,0 +1,40 @@
+
+
+body{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(233, 231, 231);
+    overflow-x: hidden;
+}
+
+
+
+#conteudo{
+    width: 60%;
+    margin: auto;
+    margin-top: 30px;
+    background-color: white;
+    padding: 30px;
+    box-shadow: 5px 5px 10px #888;
+}
+
+
+#calc{
+    font-family: "Comfortaa", sans-serif;
+
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+
+
+#prob{
+    position: relative;
+    top: 60px;
+    left: 570px;
+}
+
+
+footer{
+    padding: 40px;
+}
