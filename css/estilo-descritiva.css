@@ -1,12 +1,8 @@
 
 #conteudo{
-    height: 100%;
-    width: 100%;
-    /*background: rgb(228, 226, 226);*/
-    background: linear-gradient(rgb(66, 66, 66),rgb(168, 168, 168),white);
-    /* background-image: url(../imagens/gama3.jpg);
-    background-position: center;
-    background-size: cover; */
+    
+    background-color: rgb(233, 231, 231);
+    
     overflow-x: hidden;
     
 }
@@ -14,7 +10,6 @@
 
 #coluna #corpo{
     margin: auto;
-    border:1px solid gray;
     border-radius: 5px;
     box-shadow: 5px 5px 10px #888;
     background-color: white;
