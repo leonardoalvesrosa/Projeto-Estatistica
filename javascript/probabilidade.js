@@ -4,11 +4,17 @@ function calcular(){
     let n = Number(document.getElementById('dados').value)   // dados
     let p = Number(document.getElementById('sucesso').value).toFixed(1) // sucesso
     let q = Number(document.getElementById('fracasso').value).toFixed(1) // fracasso
+    let resultado = document.getElementById('resultado')
     let dadoEvento = (document.getElementById('evento'))   // evento
     let evento = dadoEvento.value
     let vetorEvento = []
     let k = []
 
+
+    if(n === '' || p === '' || q === '' || evento === ''){
+        swal("Ops!", "Digite dados válidos!", "error");
+        return
+    }
 
 
     console.log(n)
@@ -51,6 +57,45 @@ function calcular(){
 
     console.log('Soma: ' + somaProb)
 
+    let resultadoProb = document.createElement('h4')
+    resultadoProb.innerText = `Resultado: ${somaProb} %`
+
+    resultado.appendChild(resultadoProb)
+
+
+
+    // // criar o elemento HTML
+    // var mosquito = document.createElement('img')
+    // mosquito.src = 'imagens/mosca.png'
+    // mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio()
+    // mosquito.style.left = posicaoX + 'px'
+    // mosquito.style.top = posicaoY + 'px'
+    // mosquito.style.position = 'absolute'
+    // mosquito.id = 'mosquito'
+    // mosquito.onclick = function(){
+    //     this.remove()
+    // }
+    
+    // document.body.appendChild(mosquito)
+
+    
+    
+
+
+
+   limpaTela(n, p, q, evento)
    
 
+}
+
+
+function limpaTela(n, p, q, evento){
+    document.getElementById('dados').value = ''
+    document.getElementById('sucesso').value = ''
+    document.getElementById('fracasso').value = ''
+    document.getElementById('evento').value = ''
+    n = ''
+    p = ''
+    q = ''
+    evento = ''
 }
