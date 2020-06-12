@@ -74,40 +74,60 @@
     </header>
 
 
-
-    <div id="conteudo">
+   
+    <div class="container" id="conteudo">
       
 
-        <img src="imagens/probabilidade.png" alt="" width="70px" id="prob">
-        <h2 class="display-4 text-center">Probabilidade</h2>
-        <br><br>
-    
-        <div>
-          <div class="form-group">
-              <label for="dados">Amostra</label>
-              <input class="form-control" type="text" id="dados" placeholder="Amostra (N)">
-          </div>
-      
-          <div class="form-group">
-              <label for="sucesso">Sucesso</label>
-              <input class="form-control" type="number" id="sucesso" placeholder="Sucesso (p)">
-          </div>
-      
-          <div class="form-group">
-              <label for="fracasso">Fracasso</label>
-              <input class="form-control" type="number" id="fracasso" placeholder="Fracasso (q)">
-          </div>
-      
-          <div class="form-group">
-              <label for="evento">Evento</label>
-              <input class="form-control" type="text" id="evento" placeholder="Evento (K)">
-          </div>
-    
-          <br><br>
+
+     
+
+      <img src="imagens/probabilidade.png" alt="" width="70px" id="prob">
+      <h2 class="display-4 text-center">Probabilidade</h2>
+      <br><br>
   
-          <input class= "btn  btn-block btn-dark" type="button" id="calc"  value="CALCULAR" onclick="calcular()">
+      <div id='formulario'>
+        <div class="form-group">
+            <label for="dados">Amostra</label>
+            <input class="form-control" type="text" id="dados" placeholder="Amostra (N)">
+        </div>
+    
+        <div class="form-group">
+            <label for="sucesso">Sucesso</label>
+            <input class="form-control" type="number" id="sucesso" placeholder="Sucesso (p)">
+        </div>
+    
+        <div class="form-group">
+            <label for="fracasso">Fracasso</label>
+            <input class="form-control" type="number" id="fracasso" placeholder="Fracasso (q)">
+        </div>
+    
+        <div class="form-group">
+            <label for="evento">Evento</label>
+            <input class="form-control" type="text" id="evento" placeholder="Evento (K)">
+        </div>
+  
+        <br><br>
+
+        <input class= "btn  btn-block btn-dark" type="button" id="calc"  value="CALCULAR" onclick="calcular()">
+        
+
+
         
       </div>
+
+      
+      <div  class="d-flex">
+        <div class="container align-self-center">
+          <div id="coluna" class="row">
+              <div id="resultado">
+              </div>          
+          </div>
+        </div>
+      </div>
+
+
+
+      
     </div>
     
     
