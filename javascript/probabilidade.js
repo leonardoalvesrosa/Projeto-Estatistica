@@ -64,32 +64,17 @@ function calcular(){
 
 
 
-    // // criar o elemento HTML
-    // var mosquito = document.createElement('img')
-    // mosquito.src = 'imagens/mosca.png'
-    // mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio()
-    // mosquito.style.left = posicaoX + 'px'
-    // mosquito.style.top = posicaoY + 'px'
-    // mosquito.style.position = 'absolute'
-    // mosquito.id = 'mosquito'
-    // mosquito.onclick = function(){
-    //     this.remove()
-    // }
-    
-    // document.body.appendChild(mosquito)
 
-    
-    
+    limpaTela(n, p, q, evento, resultadoProb)
 
 
-
-   limpaTela(n, p, q, evento)
+   
    
 
 }
 
 
-function limpaTela(n, p, q, evento){
+function limpaTela(n, p, q, evento, resultado){
     document.getElementById('dados').value = ''
     document.getElementById('sucesso').value = ''
     document.getElementById('fracasso').value = ''
@@ -99,3 +84,4 @@ function limpaTela(n, p, q, evento){
     q = ''
     evento = ''
 }
+
