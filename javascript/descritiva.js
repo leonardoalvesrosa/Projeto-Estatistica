@@ -3,6 +3,8 @@ const nomevar = document.getElementById('nomevar')
 var dadosvar = document.getElementById('dados')
 const salve = document.getElementById('calc')
 var variavel = document.getElementById('variavel')
+var valores = document.getElementById('medidasValores')
+
 
 
 
@@ -21,9 +23,22 @@ function criaTag(elemento){
 }
 
 
+function ordinal(){
+    if(variavel.value === 'ordinal'){
+        let form = document.getElementById('form')
+        let campo = document.createElement('input')
+        campo.className = 'form-control'
+        campo.placeholder = 'Informe a ordem da variáveis'
+        campo.id = 'dadoOrdinal'
+        form.appendChild(campo)
+    }
+}
 
 
-var valores = medidasValores
+
+
+
+
 
 function verifica(){
     if(medidas.value === 'quartil'){
@@ -33,35 +48,46 @@ function verifica(){
             opcao.value = i
             valores.appendChild(opcao)
         }
+        
+       
+
+        
     }
 
-    if(medidas.value === 'quintil'){
+    else if(medidas.value === 'quintil'){
         for(let i = 1; i <= 5; i++){
             let opcao = document.createElement('option')
             opcao.innerHTML = i
             opcao.value = i
             valores.appendChild(opcao)
+            console.log(opcao)
         }
+        
     }
 
-    if(medidas.value === 'decil'){
-        valores.value = 0
+    else if(medidas.value === 'decil'){
         for(let i = 1; i <= 10; i++){
             let opcao = document.createElement('option')
             opcao.innerHTML = i
             opcao.value = i
             valores.appendChild(opcao)
+            console.log(opcao)
         }
+ 
+        
     }
 
-    if(medidas.value === 'porcentil'){
-        valores.value = 0
+    else if(medidas.value === 'porcentil'){
+        //valores.value = 0
+
         for(let i = 1; i <= 100; i++){
             let opcao = document.createElement('option')
             opcao.innerHTML = i
             opcao.value = i
             valores.appendChild(opcao)
+            console.log(opcao)
         }
+        
     }
 }
 
@@ -95,6 +121,11 @@ function visuTabela(){
         return
     }
 
+    if(variavel.value === 'ordinal' && document.getElementById('dadoOrdinal').value === ''){
+        swal("Ops!", "Informe a ordem das variáveis!", "error");
+        return
+    }
+
    
 
     // if(variavel.value === 'nominal' && medidas.value !== 'Selecione'){
@@ -114,6 +145,9 @@ function visuTabela(){
 
 
     console.log(medidas.value)
+
+
+    
     dados.push(conteudo)
     dadosSep = dados.toString().split(';')
 
@@ -264,7 +298,10 @@ function visuTabela(){
    //console.log(dadosSep)
     
     dadosSep.sort()
+   
     
+    
+   console.log('dados:' + dadosSep)
    
 
     let x, fac = 0
@@ -275,8 +312,8 @@ function visuTabela(){
   
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
-    // Casos seja Nominal ou Ordinal
-    if(variavel.value === 'nominal' || variavel.value === 'ordinal'){
+    // Casos seja Nominal
+    if(variavel.value === 'nominal'){
 
         var freqTot = 0
 
@@ -318,16 +355,82 @@ function visuTabela(){
     }
     
 
-    //console.log(freqArray)
-    //console.log(perArray)
-    //console.log(facArray)
-    //console.log(perFac)
+   
+
         
-
-
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+    // Casos seja Ordinal
+
+    if(variavel.value === 'ordinal'){
+
+        
+        let dadoOrdinal = document.getElementById('dadoOrdinal')
+        let dadosOrdinal = dadoOrdinal.value
+
+        console.log(dadosOrdinal)
+
+        var vetorOrdinal = []
+        let dadosOrd = []
+        var arrayOrdinal = []
+
+        dadosOrd.push(dadosOrdinal)
+        vetorOrdinal = dadosOrd.toString().split(';')
+
+        for(let i = 0; i <= vetorOrdinal.length; i++){
+            for(let x = 0; x < dadosSep.length; x++){
+                if(vetorOrdinal[i] === dadosSep[x]){
+                    arrayOrdinal.push(dadosSep[x])
+                }
+            }
+        }
+
+        console.log(arrayOrdinal)
 
 
+        
+    
+    
+
+
+        var freqTot = 0
+
+        for (let i = 0; i < arrayOrdinal.length; i = x) {  
+            let freqCont = 1
+            let freqPer = 0
+            for (x = i + 1; x < arrayOrdinal.length; x++) { 
+                if (arrayOrdinal[i] == arrayOrdinal[x]) {
+                    freqCont++;
+                    freqPer = (freqCont / (arrayOrdinal.length)) * 100
+                } else {
+                break;
+                }
+
+            }
+            freqTot += freqCont
+            fac += freqCont
+            facArray.push(fac)
+            freqArray.push(freqCont)
+            //perArray.push(freqPer)
+
+                
+        }
+
+        //console.log(moda)
+
+        for(let i = 0; i < freqArray.length; i++){
+            per = Math.round((freqArray[i] / arrayOrdinal.length) * 100)
+            perArray.push(per)
+        }
+
+        
+        for(let i = 0; i < facArray.length; i++){
+            per = Math.round((facArray[i] / arrayOrdinal.length) * 100)
+            perFac.push(per)
+        }
+        
+        
+    }
 
 
 
@@ -560,11 +663,22 @@ function visuTabela(){
     var novoDados = [] 
     if(variavel.value === 'discreta' || variavel.value === 'continua'){
         novoDados = [ ...new Set( dadosNum ) ];
-    } else{
+    }
+
+    else if(variavel.value === 'ordinal'){
+        novoDados = [ ...new Set( arrayOrdinal ) ];
+    }
+    
+    else{
         novoDados = [ ...new Set( dadosSep ) ];
         
     }
 
+
+   
+//-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    
        
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -625,12 +739,12 @@ function visuTabela(){
         for(let i = 1; i < freqArray.length - 1; i++){
 
 
-            // var valor = modaArray.length
-            // for(let i = 0; i < valor;i++){
-            //     if(modaArray[i] === 'Amodal'){
-            //         modaArray.splice(0,valor)
-            //     }
-            // }
+            var valor = modaArray.length
+            for(let i = 0; i < valor;i++){
+                if(modaArray[i] === 'Amodal'){
+                    modaArray.splice(0,valor)
+                }
+            }
 
 
 
@@ -702,7 +816,7 @@ function visuTabela(){
         var mediana = 0
         var modaArray = []
         let freqSort = []
-        var media = 'Não existe'
+        var m = 'Não existe'
         
         //MODA
         for(let i = 0; i < freqArray.length; i++){
@@ -714,7 +828,17 @@ function visuTabela(){
 
         let posIni = freqArray[0]
 
-        for(let i = 1; i < freqArray.length - 1; i++){
+        for(let i = 1; i < freqArray.length; i++){
+            
+            
+            var valor = modaArray.length
+            for(let i = 0; i < valor;i++){
+                if(modaArray[i] === 'Amodal'){
+                    modaArray.splice(0,valor)
+                }
+            }
+
+
             if(posIni !== freqArray[i]){
                 moda = 'moda'
                 i = (freqArray.length - 1)
@@ -726,15 +850,9 @@ function visuTabela(){
         }
 
         if(moda === 'moda'){
-            var valor = modaArray.length
-            for(let i = 0; i < valor;i++){
-                if(modaArray[i] === 'Amodal'){
-                    modaArray.splice(0,valor)
-                }
-            }
+            
 
-
-            let posFim = (freqSort.length - 1)
+            let posFim = (freqArray.length - 1)
             
             maior = freqSort[posFim]
 
@@ -876,12 +994,13 @@ function visuTabela(){
         console.log('facCont: ' + facCont)
         console.log('freq: ' + freq)
         console.log('intervalo : ' + intervalo)
+        console.log('meio : ' + meio)
 
 
 
         
         for(let i = 0; i < facCont.length; i++){
-            if(meio > facCont[i] && meio < facCont[i + 1]){
+            if(meio > facCont[i] && meio <= facCont[i + 1]){
                 mediana = (p[i + 1] + ((((freqTot / 2) - facCont[i]) / freq[i + 1]) * intervalo)).toFixed(2)
             }
         }
@@ -1301,7 +1420,7 @@ function visuTabela(){
 
 
     // TABELA TENDENCIA CENTRAL
-    if(variavel.value === 'nominal' || variavel.value === 'ordinal' || variavel.value === 'discreta'){
+    if(variavel.value === 'nominal' || variavel.value === 'discreta'){
         for(let j = 0; j < novoDados.length; j++){
             let linhaBody = criaTag("tr")
             //linhaBody.appendChild(criaCelula("td" ))
@@ -1320,7 +1439,54 @@ function visuTabela(){
         }
 
         let linhaBody = criaTag("tr")
-        let cell = criaCelula("td", media)
+        let cell = criaCelula("td", m)
+        let cell2 = criaCelula("td", modaArray)
+        let cell3 = criaCelula("td", mediana)
+        linhaBody.appendChild(cell)
+        linhaBody.appendChild(cell2)
+        linhaBody.appendChild(cell3)
+        tbody2.appendChild(linhaBody)
+
+        let linhaBody3 = criaTag("tr")
+        let cellMed = criaCelula("td", resultado)
+        linhaBody3.appendChild(cellMed)
+        tbody3.appendChild(linhaBody3)
+
+        if(variavel.value === 'discreta'){
+            thead4.appendChild(linhaHead4)
+            let linhaBody4 = criaTag("tr")
+            let cellDp = criaCelula("td", dp)
+            let cellCv = criaCelula("td", cv)
+            linhaBody4.appendChild(cellDp)
+            linhaBody4.appendChild(cellCv)
+            tbody4.appendChild(linhaBody4)
+        }
+        
+
+
+    }
+
+    // TABELA TENDENCIA CENTRAL
+    if(variavel.value === 'ordinal'){
+        for(let j = 0; j < novoDados.length; j++){
+            let linhaBody = criaTag("tr")
+            //linhaBody.appendChild(criaCelula("td" ))
+            let cell = criaCelula("td", novoDados[j])
+            let cell2 = criaCelula("td", freqArray[j])
+            let cell3 = criaCelula("td", `${perArray[j]}%`)
+            let cell4 = criaCelula("td", facArray[j])
+            let cell5 = criaCelula("td", `${perFac[j]}%`)
+            linhaBody.appendChild(cell)
+            linhaBody.appendChild(cell2)
+            linhaBody.appendChild(cell3)
+            linhaBody.appendChild(cell4)
+            linhaBody.appendChild(cell5)
+            tbody.appendChild(linhaBody)
+    
+        }
+
+        let linhaBody = criaTag("tr")
+        let cell = criaCelula("td", m)
         let cell2 = criaCelula("td", modaArray)
         let cell3 = criaCelula("td", mediana)
         linhaBody.appendChild(cell)
