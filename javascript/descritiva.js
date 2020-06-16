@@ -1227,7 +1227,7 @@ function visuTabela(){
                 datasets: [
                 {
                     label: "Porcentagem",
-                    data: freqArray,
+                    data: perArray,
                 
                     backgroundColor:[
 
@@ -1294,7 +1294,7 @@ function visuTabela(){
                 datasets: [
                 {
                     label: "Dados",
-                    data: freqArray,
+                    data: perArray,
                 
                     backgroundColor:[
                         '#1d3557',
@@ -1366,7 +1366,7 @@ function visuTabela(){
                 datasets: [
                 {
                     label: "Dados",
-                    data: freq,
+                    data: perArray,
                 
                     backgroundColor:[
                         '#1d3557',
