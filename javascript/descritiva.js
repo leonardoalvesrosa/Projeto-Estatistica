@@ -6,23 +6,13 @@ var variavel = document.getElementById('variavel')
 var valores = document.getElementById('medidasValores')
 
 
-
-
-
-
-    /*
-const array = [1, 5, 3, 3, 1, 6, 7, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4];
-const novoArray = [ ...new Set( array ) ];
-console.log(novoArray);
-// Esperado: [1, 5, 3, 6, 7, 2, 4]
-*/
-
-
+// Funçaõ que retorna a criação de um elemento
 function criaTag(elemento){
     return document.createElement(elemento)
 }
 
 
+// Função que cria input na Ordinal
 function ordinal(){
     if(variavel.value === 'ordinal'){
         let form = document.getElementById('form')
@@ -31,17 +21,18 @@ function ordinal(){
         campo.placeholder = 'Informe a ordem da variáveis'
         campo.id = 'dadoOrdinal'
         form.appendChild(campo)
+    }else{
+        let form = document.getElementById('form').innerHTML = ''
+        //let campo = document.createElement()
+        //form.appendChild(campo)
     }
 }
 
 
-
-
-
-
-
+// Funcção que cria os options da Medida Separatriz
 function verifica(){
     if(medidas.value === 'quartil'){
+        document.getElementById('medidasValores').innerHTML = ''
         for(let i = 1; i <= 4; i++){
             let opcao = document.createElement('option')
             opcao.innerHTML = i
@@ -49,12 +40,10 @@ function verifica(){
             valores.appendChild(opcao)
         }
         
-       
-
-        
     }
 
     else if(medidas.value === 'quintil'){
+        document.getElementById('medidasValores').innerHTML = ''
         for(let i = 1; i <= 5; i++){
             let opcao = document.createElement('option')
             opcao.innerHTML = i
@@ -66,6 +55,7 @@ function verifica(){
     }
 
     else if(medidas.value === 'decil'){
+        document.getElementById('medidasValores').innerHTML = ''
         for(let i = 1; i <= 10; i++){
             let opcao = document.createElement('option')
             opcao.innerHTML = i
@@ -79,7 +69,7 @@ function verifica(){
 
     else if(medidas.value === 'porcentil'){
         //valores.value = 0
-
+        document.getElementById('medidasValores').innerHTML = ''
         for(let i = 1; i <= 100; i++){
             let opcao = document.createElement('option')
             opcao.innerHTML = i
@@ -94,10 +84,7 @@ function verifica(){
 
 
 
-
-
-
-
+// Função principal do sistema que possui a logica / criação da tabela e gráficos 
 function visuTabela(){
 
 
@@ -127,21 +114,6 @@ function visuTabela(){
     }
 
    
-
-    // if(variavel.value === 'nominal' && medidas.value !== 'Selecione'){
-    //     swal("Ops!", "Medidas separatrizes operam somente em variáveis quantitativas!", "error");
-    //     medidas.disabled
-    //     variavel.focus()
-    //     return
-    // }
-
-    // if(variavel.value === 'ordinal' && medidas.value !== 'Selecione'){
-    //     swal("Ops!", "Medidas separatrizes operam somente em variáveis quantitativas!", "error");
-    //     medidas.disabled
-    //     variavel.focus()
-    //     return
-    // }
-
 
 
     console.log(medidas.value)
@@ -205,24 +177,25 @@ function visuTabela(){
 
 
     } 
-
-
-
-
    
-    let tabela = document.getElementById('tabela')
-    let tabela2 = document.getElementById('tabela2')
-    let tabela3 = document.getElementById('tabela3')
-    let tabela4 = document.getElementById('tabela4')
-    //let nometitulo = document.getElementById('nomecol')
+    let tabela = document.getElementById('tabela').innerHTML = ""
+    let tabela2 = document.getElementById('tabela2').innerHTML = ""
+    let tabela3 = document.getElementById('tabela3').innerHTML = ""
+    let tabela4 = document.getElementById('tabela4').innerHTML = ""
 
+    tabela = document.getElementById('tabela')
+    tabela2 = document.getElementById('tabela2')
+    tabela3 = document.getElementById('tabela3')
+    tabela4 = document.getElementById('tabela4')
+
+    //let nometitulo = document.getElementById('nomecol')
 
     let thead = criaTag("thead")
     let tbody = criaTag("tbody")
 
     let thead2 = criaTag("thead")
     let tbody2 = criaTag("tbody")
-
+    ordinal()
     let thead3 = criaTag("thead")
     let tbody3 = criaTag("tbody")
 
@@ -293,9 +266,7 @@ function visuTabela(){
     thead3.appendChild(linhaHead3)
   
     
-     
-
-   //console.log(dadosSep)
+    
     
     dadosSep.sort()
    
@@ -312,7 +283,7 @@ function visuTabela(){
   
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
-    // Casos seja Nominal
+    // Caso seja Nominal
     if(variavel.value === 'nominal'){
 
         var freqTot = 0
@@ -360,7 +331,7 @@ function visuTabela(){
         
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
     
-    // Casos seja Ordinal
+    // Caso seja Ordinal
 
     if(variavel.value === 'ordinal'){
 
@@ -437,7 +408,7 @@ function visuTabela(){
 
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
-    // Casos seja Discreta
+    // Caso seja Discreta
     if(variavel.value === 'discreta'){
 
         var freqTot = 0
@@ -483,10 +454,6 @@ function visuTabela(){
     
     
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
 
 
 
