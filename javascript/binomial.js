@@ -57,26 +57,13 @@ function calcular(){
 
     console.log('Soma: ' + somaProb)
 
-    let resultadoProb = document.createElement('h4')
-    resultadoProb.innerText = `Resultado: ${somaProb} %`
+    let resultadoProb = document.createElement('h3')
+    resultadoProb.innerText = `Probabilidade é de ${somaProb} %`
 
-
-
-    limpaTela()
-
-
+    document.getElementById('resultado').innerHTML = ''
     resultado.appendChild(resultadoProb)
 
 
 }
 
 
-
-
-function limpaTela(n, p, q, evento){
-    document.getElementById('dados').value = ''
-    document.getElementById('sucesso').value = ''
-    document.getElementById('fracasso').value = ''
-    document.getElementById('evento').value = ''
-    document.getElementById('resultado').innerHTML = ''
-}
