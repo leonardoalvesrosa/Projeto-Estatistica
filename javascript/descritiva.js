@@ -1185,8 +1185,16 @@ function visuTabela(){
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
+    // Limpa Gráfico
+    var grafico = document.getElementById('grafico');
+    grafico.innerHTML = '&nbsp;';
+    $('#grafico').append('<canvas id="myChart"><canvas>');
+    ctx = $("#myChart").get(0).getContext("2d"); 
+
     // GRAFICO
     if(variavel.value === 'nominal' || variavel.value === 'ordinal'){
+
+               
         let chart = new Chart(document.getElementById("myChart"), {
             type: 'pie',
             data:{
