@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="css/estilo-barra.css">
+    <link rel="stylesheet" href="css/estilo-binomial.css">
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Sweet Alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Font Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+
+
+    <title>Probabiliade | Normal</title>
+    <link rel="icon" href="imagens/cube.svg">
+
+</head>
+
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+            <a href="" class="navbar-brand">
+                <span class="marca">GAMA </span>
+                <span class="marca">TECH</span>
+            </a>
+            
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-target3">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            
+            <div class="collapse navbar-collapse" id="nav-target3">
+              <ul class="navbar-nav ml-auto">
+    
+                <li class="nav-item dropdown">
+                    <a href="" class="nav-link dropdown-toggle verde" data-toggle="dropdown">Estatística</a>
+        
+                    <div class="dropdown-menu">
+                      <a href="descritiva.html" class="dropdown-item">Estatística Descritiva</a>
+                      <a href="probabilidade.html" class="dropdown-item">Probabilidade</a>
+                      <a href="correlacao.html" class="dropdown-item">Correlação e Regressão</a>
+                    </div>
+                </li>
+    
+                <li class="nav-item">
+                  <a href="menu.html" class="nav-link verde">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="index.html" class="nav-link verde" >Login</a>
+                </li>
+      
+    
+              </ul>
+            </div>
+            
+        </nav>
+    </header>
+
+
+   
+    <div class="container" id="conteudo">
+      
+
+      <img src="imagens/probabilidade.png" alt="" width="70px" id="prob">
+      <h2 class="display-4 text-center">Normal</h2>
+      <br><br>
+
+      
+
+      <div id='formulario'>
+        
+
+        <div class="form-group">
+            <label for="media">Média</label>
+            <input class="form-control" type="text" id="media" placeholder="Média">
+        </div>
+    
+        <div class="form-group">
+            <label for="dp">Desvio Padrão</label>
+            <input class="form-control" type="number" id="dp" placeholder="Desvio Padrão">
+        </div>
+    
+
+        <div class="form-group">
+          <label for="">Intervalo</label>
+          <select class="form-control" name="intervalo" id="intervalo" onchange="criaDiv()">
+              <option value="">Selecione</option>
+              <option value="maior">Maior que</option>
+              <option value="entre">Entre</option>
+              <option value="menor">Menor que</option>
+          </select>
+        </div>
+
+
+        
+        <form class="form-inline">
+            <div class="form-group" id="div_inicio"></div>
+
+            <div class="form-group" id="div_fim"></div>
+        </form>
+
+        <div class="form-group" id="div_qtde"></div>
+
+        <!-- <div class="form-group">
+            <label for="qtde">Quantidade</label>
+            <input class="form-control" type="number" id="qtde" placeholder="Quantidade">
+        </div> -->
+
+
+        <!-- <div class="form-group">
+          <input class="form-control" type="number" id="inicio" placeholder="De">
+        </div>
+
+        <div class="form-group">
+          <input class="form-control" type="number" id="fim" placeholder="Até">
+        </div>
+         -->
+  
+        <br><br>
+        <input class= "btn  btn-block btn-dark" type="button" id="calc"  value="CALCULAR" onclick="calcular()">
+        
+
+        
+      </div>
+
+      
+      <div  class="d-flex">
+        <div class="container align-self-center">
+          <div id="coluna" class="row">
+              <div id="resultado">
+              </div>          
+          </div>
+        </div>
+      </div>
+
+
+
+      
+    </div>
+    
+    
+    <footer></footer>
+
+    <script src="javascript/normal.js"></script>
+
+
+</body>
+</html>
