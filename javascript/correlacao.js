@@ -59,10 +59,40 @@ function calcular(){
     r = r * 100
     r = r.toFixed(2)
 
+    
     let resultadoR = document.createElement('h4')
     resultadoR.innerText = `Correlação: ${r} %`
+    
+
+    let forca = document.createElement('h4')
+
+    if(r === 100){
+        forca.innerText = `Perfeita positiva`
+    }
+    else if(r === -100){
+        forca.innerText = `Perfeita positiva`
+    }
+    else if(r === 0){
+        forca.innerText = `Variáveis não relacionadas`
+    }
+    else if(r > 0 && r < 30){
+        forca.innerText = `Moderada`
+    }
+    else if(r >= 30 && r < 70){
+        forca.innerText = `Moderada`
+    }
+    else{
+        forca.innerText = `Forte`
+    }
+
     document.getElementById('resultado').innerHTML = ''
     resultado.appendChild(resultadoR)
+    resultado.appendChild(forca)
+
+    
+   
+
+
 
     console.log(somaX)
     console.log(somaY)
@@ -74,7 +104,7 @@ function calcular(){
     console.log(somaY2)
     console.log(parte1)
     console.log(parte2)
-    console.log(r)
+    console.log('R = '+ r)
     console.log(dadosNumX)
 
 
@@ -85,28 +115,80 @@ function calcular(){
     ctx = $("#myChart").get(0).getContext("2d");
 
 
+    
 
+    let dados = []
+
+    for( let i = 0; i < dadosNumX.length; i++){
+        dados.push({
+            x: dadosNumX[i],
+            y: dadosNumY[i],
+            r: 5
+        })
+    }
+
+
+
+
+    // let chart = new Chart(document.getElementById("myChart"), {
+    //     type: 'line',
+    //     data:{
+    //         labels: dadosLine,
+    //         datasets: [
+    //         {
+    //             label: "X ",
+    //             data: dadosLine,
+    //             borderColor: '#5EFF4C',
+    //             backgroundColor: 'transparent',
+    //             borderWidth: 2
+            
+    //             },
+
+    //         ]
+            
+    //     },
+
+    //     options:{  
+
+    //         title:{
+    //             display: false,
+    //         },
+
+    //         scales:{
+    //             yAxes: [
+    //                 {
+    //                     ticks:{
+    //                         beginAtZero: true
+    //                     }
+    //                 }
+    //             ]
+    //         }
+    //     }
+    // })
+
+
+    
     let chart = new Chart(document.getElementById("myChart"), {
-        type: 'line',
+        type: 'bubble',
         data:{
-            labels: dadosNumX,
+            labels: dados,
             datasets: [
             {
-                label: "X ",
-                data: dadosNumX,
-                borderColor: '#5EFF4C',
-                backgroundColor: 'transparent',
-                borderWidth: 4
+                label: "Regressão",
+                data: dados,
+                borderColor: 'rgb(112, 255, 136)',
+                backgroundColor: 'black',
+                borderWidth: 1
             
                 },
-            {
-                label: "Y ",
-                data: dadosNumY,
-                borderColor: '#5EFF4C',
-                backgroundColor: 'transparent',
-                borderWidth: 4
+            // {
+            //     label: "Y ",
+            //     data: dadosNumY,
+            //     borderColor: '#5EFF4C',
+            //     backgroundColor: 'transparent',
+            //     borderWidth: 4
         
-            }
+            // }
 
             ]
             
@@ -129,4 +211,12 @@ function calcular(){
             }
         }
     })
+
+
+    
+
+
+
+
+    
 }
