@@ -64,7 +64,7 @@ function calcular(){
     resultadoR.innerText = `Correlação: ${r} %`
     
 
-    let forca = document.createElement('h4')
+    var forca = document.createElement('h4')
 
     if(r === 100){
         forca.innerText = `Perfeita positiva`
@@ -76,7 +76,7 @@ function calcular(){
         forca.innerText = `Variáveis não relacionadas`
     }
     else if(r > 0 && r < 30){
-        forca.innerText = `Moderada`
+        forca.innerText = `Fraca`
     }
     else if(r >= 30 && r < 70){
         forca.innerText = `Moderada`
@@ -90,9 +90,35 @@ function calcular(){
     resultado.appendChild(forca)
 
     
-   
+    function troca(vet, i, j) {
+        let aux = vet[i]
+        vet[i] = vet[j]
+        vet[j] = aux
+     }
+     
+    function quickSort(vet, posIni = 0, posFim = vet.length - 1) {
+        
+        if(posFim > posIni) { 
+           const posPivot = posFim  
+           let posDiv = posIni - 1    
+           for(let i = posIni; i < posFim; i++) { 
+              if(vet[i] < vet[posPivot]) {
+                 posDiv++
+                 troca(vet, i, posDiv)  
+              }
+           }
+           posDiv++
+           troca(vet, posDiv, posPivot)
+           quickSort(vet, posIni, posDiv - 1)
+           quickSort(vet, posDiv + 1, posFim)
+        }
+     }
 
+    quickSort(dadosNumX)
+    quickSort(dadosNumY)
 
+    dadosNumX = [ ...new Set( dadosNumX ) ];
+    dadosNumY = [ ...new Set( dadosNumY ) ];
 
     console.log(somaX)
     console.log(somaY)
@@ -106,6 +132,7 @@ function calcular(){
     console.log(parte2)
     console.log('R = '+ r)
     console.log(dadosNumX)
+    console.log(forca.innerText)
 
 
     // Limpa Gráfico
@@ -115,102 +142,126 @@ function calcular(){
     ctx = $("#myChart").get(0).getContext("2d");
 
 
-    
+    for(let i = 0; i < dadosNumX.length; i++){
+        // if(dadosNumX[i] === dadosNumY[i]){
+        if(forca.innerText === 'Forte'){
 
-    let dados = []
+            let chart = new Chart(document.getElementById("myChart"), {
+                    type: 'line',
+                    data:{
+                        labels: dadosNumX,
+                        datasets: [
+                        {
+                            label: "X ",
+                            data: dadosNumX,
+                            borderColor: '#5EFF4C',
+                            backgroundColor: 'transparent',
+                            borderWidth: 4
+                        
+                        },
+                        {
+                            label: "Y ",
+                            data: dadosNumY,
+                            borderColor: '#5EFF4C',
+                            backgroundColor: 'transparent',
+                            borderWidth: 4
+                
+                        }
 
-    for( let i = 0; i < dadosNumX.length; i++){
-        dados.push({
-            x: dadosNumX[i],
-            y: dadosNumY[i],
-            r: 5
-        })
-    }
+                        ]
+                        
+                    },
 
+                    options:{  
 
+                        title:{
+                            display: false,
+                        },
 
-
-    // let chart = new Chart(document.getElementById("myChart"), {
-    //     type: 'line',
-    //     data:{
-    //         labels: dadosLine,
-    //         datasets: [
-    //         {
-    //             label: "X ",
-    //             data: dadosLine,
-    //             borderColor: '#5EFF4C',
-    //             backgroundColor: 'transparent',
-    //             borderWidth: 2
-            
-    //             },
-
-    //         ]
-            
-    //     },
-
-    //     options:{  
-
-    //         title:{
-    //             display: false,
-    //         },
-
-    //         scales:{
-    //             yAxes: [
-    //                 {
-    //                     ticks:{
-    //                         beginAtZero: true
-    //                     }
-    //                 }
-    //             ]
-    //         }
-    //     }
-    // })
-
-
-    
-    let chart = new Chart(document.getElementById("myChart"), {
-        type: 'bubble',
-        data:{
-            labels: dados,
-            datasets: [
-            {
-                label: "Regressão",
-                data: dados,
-                borderColor: 'rgb(112, 255, 136)',
-                backgroundColor: 'black',
-                borderWidth: 1
-            
-                },
-            // {
-            //     label: "Y ",
-            //     data: dadosNumY,
-            //     borderColor: '#5EFF4C',
-            //     backgroundColor: 'transparent',
-            //     borderWidth: 4
-        
-            // }
-
-            ]
-            
-        },
-
-        options:{  
-
-            title:{
-                display: false,
-            },
-
-            scales:{
-                yAxes: [
-                    {
-                        ticks:{
-                            beginAtZero: true
+                        scales:{
+                            yAxes: [
+                                {
+                                    ticks:{
+                                        beginAtZero: true
+                                    }
+                                }
+                            ]
                         }
                     }
-                ]
+                })
+
+        } else{
+
+            let dados = []
+
+            for( let i = 0; i < dadosNumX.length; i++){
+                dados.push({
+                    x: dadosNumX[i],
+                    y: dadosNumY[i],
+                    r: 5
+                })
             }
+
+
+
+            let chart = new Chart(document.getElementById("myChart"), {
+                type: 'bubble',
+                data:{
+                    labels: dados,
+                    datasets: [
+                    {
+                        label: "Regressão",
+                        data: dados,
+                        borderColor: 'rgb(112, 255, 136)',
+                        backgroundColor: 'black',
+                        borderWidth: 1
+                    
+                        },
+                    // {
+                    //     label: "Y ",
+                    //     data: dadosNumY,
+                    //     borderColor: '#5EFF4C',
+                    //     backgroundColor: 'transparent',
+                    //     borderWidth: 4
+                
+                    // }
+        
+                    ]
+                    
+                },
+        
+                options:{  
+        
+                    title:{
+                        display: false,
+                    },
+        
+                    scales:{
+                        yAxes: [
+                            {
+                                ticks:{
+                                    beginAtZero: true
+                                }
+                            }
+                        ]
+                    }
+                }
+            })
+
         }
-    })
+    }
+    
+
+    
+
+
+
+
+    
+
+
+    
+    
 
 
     
