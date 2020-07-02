@@ -28,6 +28,13 @@ body{
     color: rgb(112, 255, 136);
 }
 
+.card:hover{
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 1px;
+    transition: 0.3s;
+}
 
 #conteudo{
     
