@@ -154,7 +154,8 @@ function calcular(){
                         {
                             label: "X ",
                             data: dadosNumX,
-                            borderColor: '#5EFF4C',
+                            // borderColor: '#5EFF4C',
+                            borderColor: 'rgb(61, 236, 120)',
                             backgroundColor: 'transparent',
                             borderWidth: 4
                         
@@ -162,7 +163,7 @@ function calcular(){
                         {
                             label: "Y ",
                             data: dadosNumY,
-                            borderColor: '#5EFF4C',
+                            borderColor: 'rgb(61, 236, 120)',
                             backgroundColor: 'transparent',
                             borderWidth: 4
                 
