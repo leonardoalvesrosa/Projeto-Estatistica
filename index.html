@@ -87,18 +87,18 @@
 
                                  
 
-                                    let user = usuario.value 
+                                    var user = usuario.value 
                                
                                     let pass = password.value
                                   
 
 
                                     if (user != '' && pass != ''){
-                                        swal("Bem vindo!", "Login concluído.", "success");
+                                        swal(`Bem vindo, ${user}!`, "Login concluído.", "success");
 
                                         setTimeout(function(){
                                             window.location.href = "menu.html"
-                                        },1500);
+                                        },1300);
                                         
                                     } else {
                                         swal("Ops!", "Informe um usuário e senha", "error");
