@@ -19,6 +19,16 @@ function calcular(){
     var somaY2 = 0
     var r = 0
 
+
+    if (dadosVarX == "" || dadosVarY == ""){
+        swal("Ops!", "Digite dados válidos!", "error");
+        document.getElementById('dadosX').focus()
+        return
+    }
+
+
+
+
     dadosX.push(dadosVarX)
     dadosSepX = dadosX.toString().split(';')
     for(let i = 0; i < dadosSepX.length; i++){
