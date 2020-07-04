@@ -55,6 +55,37 @@ function calcular(){
     // console.log('inicio : ' + inicio + ', ' + typeof(inicio))
     // console.log('fim : ' + fim + ', ' + typeof(fim))
 
+    if (media == "" || dp == ""){
+        swal("Ops!", "Digite dados válidos!", "error");
+        document.getElementById('media').focus()
+        return
+    }
+
+    if (intervalo.value == ""){
+        swal("Ops!", "Selecione um intervalo!", "error");
+        intervalo.focus()
+        return
+    }
+
+    if (intervalo.value == "entre" && document.getElementById('inicio').value == ""){
+        swal("Ops!", "Digite dados válidos!", "error");
+        document.getElementById('inicio').focus()
+        return
+    }
+
+    if (intervalo.value == "entre" && document.getElementById('fim').value == ""){
+        swal("Ops!", "Digite dados válidos!", "error");
+        document.getElementById('fim').focus()
+        return
+    }
+
+    if (intervalo.value == "maior" || intervalo.value == "menor" && document.getElementById('qtde').value == ""){
+        swal("Ops!", "Digite dados válidos!", "error");
+        document.getElementById('qtde').focus()
+        return
+    }
+
+
 
     const z = {
         '0':   [0.0000,0.0040,0.0080,0.0120,0.0160,0.0199,0.0239,0.0279,0.0319,0.0359],
