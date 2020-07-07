@@ -20,11 +20,11 @@ function calcular(){
     var r = 0
 
 
-    if (dadosVarX == "" || dadosVarY == ""){
-        swal("Ops!", "Digite dados válidos!", "error");
-        document.getElementById('dadosX').focus()
-        return
-    }
+    // if (dadosVarX == "" || dadosVarY == ""){
+    //     swal("Ops!", "Digite dados válidos!", "error");
+    //     document.getElementById('dadosX').focus()
+    //     return
+    // }
 
 
 
@@ -43,11 +43,11 @@ function calcular(){
         dadosNumY.push(Number(dadosSepY[i]))
     }
 
-    if(dadosNumX.length !== dadosNumY.length){
-        swal("Ops!", "Digite dados válidos!", "error");
-        variavel.focus()
-        return
-    }
+    // if(dadosNumX.length !== dadosNumY.length){
+    //     swal("Ops!", "Digite dados válidos!", "error");
+    //     variavel.focus()
+    //     return
+    // }
 
     somaY = dadosNumY.reduce((acum, n) => acum += n)
 
@@ -72,6 +72,38 @@ function calcular(){
     
     let resultadoR = document.createElement('h4')
     resultadoR.innerText = `Correlação: ${r} %`
+
+
+
+    //---------------Equação---------------------------------------------------------------------------------
+    var parte1a = (dadosNumX.length * somaMultxy) - (somaX * somaY)
+    var parte2a = (dadosNumX.length * somaX2) - (somaX ** 2)
+    let a = parte1a / parte2a
+
+    a = Number(a.toFixed(4))
+
+
+    var parte1b = (somaY / dadosNumY.length)
+    var parte2b = (a * (somaX / dadosNumX.length))
+
+    let b = parte1b - parte2b
+
+    b = Number(b.toFixed(4))
+
+    console.log(somaY)
+    console.log(dadosNumY.length)
+    console.log(a)
+    console.log(somaX)
+    console.log(dadosNumX.length)
+    console.log(b)
+
+
+    let resultadoEqu = document.createElement('h4')
+    resultadoEqu.innerText = `Equação: y = ${a} . x + ${b}`
+    
+
+//------------------------------------------------------------------------------------------------
+
     
 
     var forca = document.createElement('h4')
@@ -98,6 +130,7 @@ function calcular(){
     document.getElementById('resultado').innerHTML = ''
     resultado.appendChild(resultadoR)
     resultado.appendChild(forca)
+    resultado.appendChild(resultadoEqu)
 
     
     function troca(vet, i, j) {
