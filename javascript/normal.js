@@ -61,29 +61,29 @@ function calcular(){
         return
     }
 
-    if (intervalo.value == ""){
-        swal("Ops!", "Selecione um intervalo!", "error");
-        intervalo.focus()
-        return
-    }
+    // if (intervalo.value == ""){
+    //     swal("Ops!", "Selecione um intervalo!", "error");
+    //     intervalo.focus()
+    //     return
+    // }
 
-    if (intervalo.value == "entre" && document.getElementById('inicio').value == ""){
-        swal("Ops!", "Digite dados válidos!", "error");
-        document.getElementById('inicio').focus()
-        return
-    }
+    // if (intervalo.value == "entre" && document.getElementById('inicio').value == ""){
+    //     swal("Ops!", "Digite dados válidos!", "error");
+    //     document.getElementById('inicio').focus()
+    //     return
+    // }
 
-    if (intervalo.value == "entre" && document.getElementById('fim').value == ""){
-        swal("Ops!", "Digite dados válidos!", "error");
-        document.getElementById('fim').focus()
-        return
-    }
+    // if (intervalo.value == "entre" && document.getElementById('fim').value == ""){
+    //     swal("Ops!", "Digite dados válidos!", "error");
+    //     document.getElementById('fim').focus()
+    //     return
+    // }
 
-    if (intervalo.value == "maior" || intervalo.value == "menor" && document.getElementById('qtde').value == ""){
-        swal("Ops!", "Digite dados válidos!", "error");
-        document.getElementById('qtde').focus()
-        return
-    }
+    // if (intervalo.value == "maior" || intervalo.value == "menor" && document.getElementById('qtde').value == ""){
+    //     swal("Ops!", "Digite dados válidos!", "error");
+    //     document.getElementById('qtde').focus()
+    //     return
+    // }
 
 
 
