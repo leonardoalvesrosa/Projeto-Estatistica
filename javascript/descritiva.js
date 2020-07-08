@@ -790,7 +790,32 @@ function visuTabela(){
             freqSort.push(freqArray[i])
         }
 
-        freqSort.sort()
+        function troca(vet, i, j) {
+            let aux = vet[i]
+            vet[i] = vet[j]
+            vet[j] = aux
+         }
+         
+        function quickSort(vet, posIni = 0, posFim = vet.length - 1) {
+            
+            if(posFim > posIni) { 
+               const posPivot = posFim  
+               let posDiv = posIni - 1    
+               for(let i = posIni; i < posFim; i++) { 
+                  if(vet[i] < vet[posPivot]) {
+                     posDiv++
+                     troca(vet, i, posDiv)  
+                  }
+               }
+               posDiv++
+               troca(vet, posDiv, posPivot)
+               quickSort(vet, posIni, posDiv - 1)
+               quickSort(vet, posDiv + 1, posFim)
+            }
+        }
+
+        quickSort(freqSort)
+
         
 
         let posIni = freqArray[0]
@@ -822,6 +847,7 @@ function visuTabela(){
             let posFim = (freqArray.length - 1)
             
             maior = freqSort[posFim]
+            console.log('maior:' + maior)
 
             for(let i = 0; i < freqArray.length; i++){
                 if(freqArray[i] === maior){
