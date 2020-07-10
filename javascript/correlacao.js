@@ -10,7 +10,7 @@ let projecao = function(){
     let regressao = document.getElementById('valor').value
     console.log('regressão = ' + regressao)
 
-    var div_projecao = document.getElementById('div_projecao')
+    let div_projecao = document.getElementById('div_projecao')
     let projecao = document.createElement('h4')
     
     if(variavel.value === 'X'){
@@ -67,7 +67,7 @@ function calcular(){
     var y2 = []
     var somaY2 = 0
     var r = 0
-    div_projecao.innerHTML = ''
+    document.getElementById('div_projecao').innerHTML = ''
 
     if (dadosVarX == "" || dadosVarY == ""){
         swal("Ops!", "Digite dados válidos!", "error");
