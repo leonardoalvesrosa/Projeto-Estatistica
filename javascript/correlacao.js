@@ -123,8 +123,8 @@ function calcular(){
     r = r.toFixed(2)
 
     
-    let resultadoR = document.createElement('h4')
-    resultadoR.innerText = `Correlação: ${r} %`
+    // let resultadoR = document.createElement('h4')
+    // resultadoR.innerText = `Correlação: ${r} %`
 
 
 
@@ -151,8 +151,8 @@ function calcular(){
     // console.log(b)
 
 
-    let resultadoEqu = document.createElement('h4')
-    resultadoEqu.innerText = `Equação: y = ${a} . x + ${b}`
+    // let resultadoEqu = document.createElement('h4')
+    // resultadoEqu.innerText = `Equação: y = ${a} . x + ${b}`
     
 
 //------------------------------------------------------------------------------------------------
@@ -180,10 +180,10 @@ function calcular(){
         forca.innerText = `Forte`
     }
 
-    document.getElementById('resultado').innerHTML = ''
-    resultado.appendChild(resultadoR)
-    resultado.appendChild(forca)
-    resultado.appendChild(resultadoEqu)
+    // document.getElementById('resultado').innerHTML = ''
+    // resultado.appendChild(resultadoR)
+    // resultado.appendChild(forca)
+    // resultado.appendChild(resultadoEqu)
 
     
     function troca(vet, i, j) {
