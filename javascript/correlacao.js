@@ -45,6 +45,10 @@ let projecao = function(){
 
 
 
+// Funçaõ que retorna a criação de um elemento
+function criaTag(elemento){
+    return document.createElement(elemento)
+}
 
 
 function calcular(){
@@ -215,6 +219,59 @@ function calcular(){
 
     dadosNumX = [ ...new Set( dadosNumX ) ];
     dadosNumY = [ ...new Set( dadosNumY ) ];
+
+
+
+    let div_correlacao = document.getElementById('div_correlacao')
+    let div_tabelacss = document.getElementById('div_tabelacss')
+
+
+    let tabela = document.createElement('table')
+    tabela.id = 'tabelaCorrelacao'
+    tabela.className = 'table'
+    tabela.innerHTML = ""
+
+    let thead = criaTag("thead")
+    let tbody = criaTag("tbody")
+    let tfoot = criaTag("tfoot")
+
+    tabela.appendChild(thead)
+    tabela.appendChild(tbody)
+    tabela.appendChild(tfoot)
+
+    let indiceTabela = ["Correlação % ", "Nível", "Equação"]
+
+    let linhaHead = criaTag("tr")
+
+    function criaCelula(tag, text) {
+        tag = criaTag(tag)
+        tag.textContent = text
+        return tag
+    }
+
+    
+    for(let i = 0; i <= indiceTabela.length -1 ; i++){
+        let th = criaCelula("th" , indiceTabela[i])
+        linhaHead.appendChild(th)
+    }
+   
+    thead.appendChild(linhaHead)
+
+
+    
+    let linhaBody = criaTag("tr")
+    let corCell = criaCelula("td", `${r} %`)
+    let forcaCell = criaCelula("td", forca.innerHTML)
+    let equaCell = criaCelula("td", `y = ${a} . x + ${b}`)
+    linhaBody.appendChild(corCell)
+    linhaBody.appendChild(forcaCell)
+    linhaBody.appendChild(equaCell)
+
+    tbody.appendChild(linhaBody)
+
+    div_tabelacss.appendChild(tabela)
+
+    div_correlacao.appendChild(div_tabelacss)
 
     // console.log(somaX)
     // console.log(somaY)
