@@ -1,3 +1,52 @@
+
+var a = 0
+var b = 0
+
+
+let projecao = function(){
+
+    console.log('variavel = ' + variavel.value)
+
+    let regressao = document.getElementById('valor').value
+    console.log('regressão = ' + regressao)
+
+    let div_projecao = document.getElementById('div_projecao')
+    let projecao = document.createElement('h4')
+    
+    if(variavel.value === 'X'){
+        let y = (a * regressao) + b
+    
+        y = Number(y.toFixed(2))
+        console.log('Y = ' + y)
+        
+        
+        projecao.innerText = `Y = ${y}`
+
+        div_projecao.innerHTML = ''
+        div_projecao.appendChild(projecao)
+        
+    }
+    
+    else if(variavel.value === 'Y'){
+ 
+        //y = (a * regressaoY) + b
+    
+        let x = (regressao - b) / a
+    
+        x = Number(x.toFixed(2))
+        console.log('X = ' + x)
+    
+        projecao.innerText = `X = ${x}`
+
+        div_projecao.innerHTML = ''
+        div_projecao.appendChild(projecao)
+    }
+}
+
+
+
+
+
 function calcular(){
 
     var dadosVarX = document.getElementById('dadosX').value
@@ -18,22 +67,26 @@ function calcular(){
     var y2 = []
     var somaY2 = 0
     var r = 0
+    div_projecao.innerHTML = ''
 
-
-    // if (dadosVarX == "" || dadosVarY == ""){
-    //     swal("Ops!", "Digite dados válidos!", "error");
-    //     document.getElementById('dadosX').focus()
-    //     return
-    // }
+    if (dadosVarX == "" || dadosVarY == ""){
+        swal("Ops!", "Digite dados válidos!", "error");
+        document.getElementById('dadosX').focus()
+        return
+    }
 
 
 
 
     dadosX.push(dadosVarX)
+    // console.log('dadosVarX  ' + dadosVarX)
+
     dadosSepX = dadosX.toString().split(';')
     for(let i = 0; i < dadosSepX.length; i++){
         dadosNumX.push(Number(dadosSepX[i]))
     }
+
+    // console.log('dadosSepX  ' + dadosSepX)
 
     somaX = dadosNumX.reduce((acum, n) => acum += n)
 
@@ -43,11 +96,11 @@ function calcular(){
         dadosNumY.push(Number(dadosSepY[i]))
     }
 
-    // if(dadosNumX.length !== dadosNumY.length){
-    //     swal("Ops!", "Digite dados válidos!", "error");
-    //     variavel.focus()
-    //     return
-    // }
+    if(dadosNumX.length !== dadosNumY.length){
+        swal("Ops!", "Digite dados válidos!", "error");
+        variavel.focus()
+        return
+    }
 
     somaY = dadosNumY.reduce((acum, n) => acum += n)
 
@@ -78,7 +131,7 @@ function calcular(){
     //---------------Equação---------------------------------------------------------------------------------
     var parte1a = (dadosNumX.length * somaMultxy) - (somaX * somaY)
     var parte2a = (dadosNumX.length * somaX2) - (somaX ** 2)
-    let a = parte1a / parte2a
+    a = parte1a / parte2a
 
     a = Number(a.toFixed(4))
 
@@ -86,16 +139,16 @@ function calcular(){
     var parte1b = (somaY / dadosNumY.length)
     var parte2b = (a * (somaX / dadosNumX.length))
 
-    let b = parte1b - parte2b
+    b = parte1b - parte2b
 
     b = Number(b.toFixed(4))
 
-    console.log(somaY)
-    console.log(dadosNumY.length)
-    console.log(a)
-    console.log(somaX)
-    console.log(dadosNumX.length)
-    console.log(b)
+    // console.log(somaY)
+    // console.log(dadosNumY.length)
+    // console.log(a)
+    // console.log(somaX)
+    // console.log(dadosNumX.length)
+    // console.log(b)
 
 
     let resultadoEqu = document.createElement('h4')
@@ -163,19 +216,84 @@ function calcular(){
     dadosNumX = [ ...new Set( dadosNumX ) ];
     dadosNumY = [ ...new Set( dadosNumY ) ];
 
-    console.log(somaX)
-    console.log(somaY)
-    console.log(multxy)
-    console.log(somaMultxy)
-    console.log(x2)
-    console.log(somaX2)
-    console.log(y2)
-    console.log(somaY2)
-    console.log(parte1)
-    console.log(parte2)
-    console.log('R = '+ r)
-    console.log(dadosNumX)
-    console.log(forca.innerText)
+    // console.log(somaX)
+    // console.log(somaY)
+    // console.log(multxy)
+    // console.log(somaMultxy)
+    // console.log(x2)
+    // console.log(somaX2)
+    // console.log(y2)
+    // console.log(somaY2)
+    // console.log(parte1)
+    // console.log(parte2)
+    // console.log('R = '+ r)
+    // console.log(dadosNumX)
+    // console.log(forca.innerText)
+
+
+
+
+
+
+
+
+    let select = document.getElementById('select')
+    select.className = 'form-group direita'
+
+    let variavel = document.createElement('select')
+    variavel.className = 'form-control'
+    variavel.id = 'variavel'
+
+    let option_0 = document.createElement('option')
+    option_0.value = ''
+    option_0.innerHTML = 'Selecione'
+
+    let option_1 = document.createElement('option')
+    option_1.value = 'X'
+    option_1.innerHTML = 'X'
+
+    let option_2 = document.createElement('option')
+    option_2.value = 'Y'
+    option_2.innerHTML = 'Y'
+
+    variavel.appendChild(option_0)
+    variavel.appendChild(option_1)
+    variavel.appendChild(option_2)
+
+    select.innerHTML = ''
+    select.appendChild(variavel)
+
+
+
+    let div_valor = document.getElementById('div_valor')
+    div_valor.className = 'form-group direita'
+    
+    let valor = document.createElement('input')
+    valor.id = 'valor'
+    valor.className = 'form-control'
+    valor.placeholder = 'Faça uma projeção'
+
+    div_valor.innerHTML = ''
+    div_valor.appendChild(valor)
+
+
+    let div_btn = document.getElementById('div_btn')
+    let btn = document.createElement('input')
+    btn.type = 'button'
+    btn.id = 'btn'
+    btn.className = 'btn btn-dark direita'
+    btn.value = 'CALCULAR'
+    btn.addEventListener("click", projecao)
+   
+
+    div_btn.innerHTML = ''
+    div_btn.appendChild(btn)
+    
+
+
+
+
+
 
 
     // Limpa Gráfico
@@ -296,22 +414,9 @@ function calcular(){
     }
     
 
-    
-
-
-
-
-    
-
-
-    
-    
-
-
-    
-
-
 
 
     
 }
+
+
