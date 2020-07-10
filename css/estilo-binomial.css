@@ -90,9 +90,14 @@ body{
 }
 
 
+#tabelaCorrelacao{
+    text-align: center;
+}
 
-
-
+#div_correlacao{
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
 
 
 
