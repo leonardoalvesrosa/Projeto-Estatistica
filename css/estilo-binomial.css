@@ -68,6 +68,37 @@ body{
 }
 
 
+#inline{
+    justify-content: center;
+    margin-bottom: 50px;
+  
+}
+
+#div_projecao{
+    text-align: center;
+    justify-content: center;
+}
+
+.direita{
+    margin-left: 25px;
+}
+
+
+#btn{
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 footer{
     padding: 40px;
