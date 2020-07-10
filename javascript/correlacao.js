@@ -10,7 +10,7 @@ let projecao = function(){
     let regressao = document.getElementById('valor').value
     console.log('regressão = ' + regressao)
 
-    let div_projecao = document.getElementById('div_projecao')
+    var div_projecao = document.getElementById('div_projecao')
     let projecao = document.createElement('h4')
     
     if(variavel.value === 'X'){
